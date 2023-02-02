@@ -64,7 +64,7 @@ class Path:
                         self.arc_length += 1
                     
                         # gets a point that enables us to get an estimate of the initial direction
-                        if self.arc_length == 10:
+                        if self.arc_length == 30:
                             self.__second_pos = curr_pos
 
                         pos_found = True

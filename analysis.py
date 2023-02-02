@@ -1,5 +1,6 @@
 from math import pow as m_pow
 from math import sqrt, cos
+from numpy import rad2deg
 import time
 
 from particle import Particle
@@ -27,8 +28,23 @@ def analyze(parent_traj, particle_1, particle_2, exp_vals):
     tau_err = abs(tau - exp_vals[1])
     tau_rel_err = tau_err / exp_vals[1]
 
+    print(f'----- Child 1 -----')
+    print(particle_1)
+    print(f'theta:\t{rad2deg(theta_1)} deg')
+
+    print(f'\np-contrib:\t{p_1} MeV/c')
+    print(f'E-contrib:\t{particle_1.energy} MeV')
+
+    print('\n----- Child 2 -----')
+    print(particle_2)
+    print(f'theta:\t{rad2deg(theta_2)}')
+
+    print(f'\np-contrib:\t{p_2} MeV/c')
+    print(f'E-contrib:\t{particle_2.energy} MeV')
+
+    print(f'\n----- Parent -----')
+    
     print(f'p:\t\t{P} MeV/c')
-    print(f'v:\t\t{v} c')
     print(f'E:\t\t{E} MeV')
     
     print(f'\nm:\t\t{m} MeV/c^2')
@@ -48,7 +64,7 @@ K0_trajectory = Trajectory('./img/K0_start_end_pos.png')
 K0_pi_minus = Particle('./img/K0_pimin.png', PION_MASS)
 pi_plus = Particle('./img/K0_piplus.png', PION_MASS)
 
-print('--- Kaon Analysis ---')
+print('------- Kaon Analysis -------')
 analyze(K0_trajectory, K0_pi_minus, pi_plus, [KAON_MASS, KAON_LIFETIME])
 
 t_1 = time.perf_counter()

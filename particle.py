@@ -17,3 +17,14 @@ class Particle:
         p = self.momentum
         m = self.mass
         self.energy = sqrt(m_pow(p, 2) + m_pow(m, 2))
+    
+    def __str__(self):
+        return f'''p:\t{self.momentum} MeV/c
+E:\t{self.energy} MeV/c^2
+
+--- path info ---
+init_dir:\t{self.path.init_direction}
+base_vec:\t{self.path.base_direction}
+L:\t{self.path.arc_length / PX2MM} mm
+s:\t{self.path.saggita} mm
+R:\t{self.path.curvature_radius} mm'''
