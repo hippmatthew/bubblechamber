@@ -1,4 +1,6 @@
-import numpy as np
+from math import acos as arccos
+from math import sqrt
+from numpy import rad2deg
 
 # Gets the vector from two opencv points ** opencv point := [y, x] **
 def get_vector(start_pos, end_pos, normalized = True):
@@ -10,7 +12,7 @@ def get_vector(start_pos, end_pos, normalized = True):
         return [x / mag, y / mag] if normalized else [x, y]
 
 def get_magnitude(vec):
-    return np.sqrt(scalar_product(vec, vec))
+    return sqrt(scalar_product(vec, vec))
 
 def normalize(vec):
     norm = get_magnitude(vec)
@@ -25,7 +27,7 @@ def get_angle(vec_1, vec_2, rad = True):
 
     dot = scalar_product(vec_1, vec_2)
 
-    return np.arccos(dot) if rad else np.arccos(dot) * 180 / np.pi
+    return arccos(dot) if rad else rad2deg(arccos(dot))
 
 def scalar_product(vec_1, vec_2):
     return vec_1[0]*vec_2[0] + vec_1[1]*vec_2[1]
